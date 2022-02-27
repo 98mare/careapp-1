@@ -1,54 +1,40 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native'
 import React from 'react'
-import { ScrollView } from 'native-base'
-import LandingPageOne from '../components/homeCompoents/LandingPageOne'
-import Carousel from 'react-native-snap-carousel'
-const carouselItems = [
-  {
-    title: "Item 1",
-    text: "Text 1",
-  },
-  {
-    title: "Item 2",
-    text: "Text 2",
-  },
-  {
-    title: "Item 3",
-    text: "Text 3",
-  },
-  {
-    title: "Item 4",
-    text: "Text 4",
-  },
-  {
-    title: "Item 5",
-    text: "Text 5",
-  },
-]
+// import Carousel from 'react-native-snap-carousel'
+import Carousel from '../components/Carousel'
+import GreetingComponent from '../components/homeCompoents/GreetingComponent'
+import { useNavigation } from '@react-navigation/native'
+import ActionCardComponent from '../components/homeCompoents/ActionCardComponent'
+
 
 const HomeScreen = () => {
+  const navigation = useNavigation()
   return (
-    <ScrollView>
-      <LandingPageOne></LandingPageOne>
-      <Carousel
-        layout='default'
-        ref={LandingPageOne}
-        data={carouselItems}
-        sliderWidth={300}
-        itemWidth={300}
-        renderItem={LandingPageOne}
-      ></Carousel>
+    <ScrollView mt={20}>
+      {/* <LandingPageOne></LandingPageOne> */}
       {/* landing page carousel cards */}
+      <GreetingComponent></GreetingComponent>
+      <ActionCardComponent />
+      <Carousel></Carousel>
+      <Button
+        title='Go to About'
+        onPress={() => navigation.navigate("About")}
+      ></Button>
 
-      {/* two buttons
-        Book LabText
-        Doctor appointment
-       */}
-      {/* Exclusive offer cards carousel */}
+      <Button
+        title='Book Lab Test'
+        onPress={() => navigation.navigate("Lab Test Home Screen")}
+      ></Button>
+      {/* Book lab Test */}
+      {/* Book Appointment */}
+      {/* Report */}
+      {/* BMI Calculator */}
     </ScrollView>
   )
 }
 
 export default HomeScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+})
