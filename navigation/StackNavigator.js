@@ -7,7 +7,9 @@ import Contact from "../screens/CotactScreen";
 import LabTestHomeScreen from "../screens/LabTest/LabTestHomeScreen";
 import BookLabTestScreen from "../screens/LabTest/BookLabTestScreen";
 import MyLabTestScreen from "../screens/LabTest/MyLabTestScreen";
-import SampleCollectionScreen from "../screens/LabTest/SampleCollectionScreen";
+import SampleCollectionScreen from "../screens/LabTest/UploadOrSelectScreen";
+import SelectTestScreen from "../screens/LabTest/SelectTestScreen";
+import UploadOrSelectScreen from "../screens/LabTest/UploadOrSelectScreen";
 
 const screenOptionStyle = {
   headerStyle: {
@@ -22,19 +24,29 @@ const Stack = createStackNavigator();
 const MainStackNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} options={{
-        headerShown: false,
-      }} />
-      <Stack.Screen name="About" component={AboutScreen} options={{
-        headerShown: false,
-      }} />
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="About"
+        component={AboutScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }
 const ContactStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={screenOptionStyle}>
-      <Stack.Screen name="Contact" component={Contact} />
+      <Stack.Screen name="Contact" component={Contact} options={{
+        headerShown: false,
+      }} />
     </Stack.Navigator>
   );
 }
@@ -43,15 +55,33 @@ const LabTestNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name='Lab Test Home Screen'
+        name='LabTestHomeScreen'
         component={LabTestHomeScreen}
+        // options={{
+        //   headerShown: false,
+        // }}
       />
       <Stack.Screen
-        name='Sample Collection'
-        component={SampleCollectionScreen} />
+        name='UploadOrSelectScreen'
+        component={UploadOrSelectScreen}
+        // options={{
+        //   headerShown: false,
+        // }}
+      />
       <Stack.Screen
-        name='My Lab Test Screen'
-        component={MyLabTestScreen} />
+        name='SelectTestScreen'
+        component={SelectTestScreen}
+        // options={{
+        //   headerShown: false,
+        // }}
+      />
+      <Stack.Screen
+        name='MyLabTestScreen'
+        component={MyLabTestScreen}
+        // options={{
+        //   headerShown: false,
+        // }}
+      />
     </Stack.Navigator>
   )
 }

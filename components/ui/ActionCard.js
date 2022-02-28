@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 const ActionCard = () => {
   const navigation = useNavigation()
   return (
-    <TouchableOpacity onPress={()=>navigation.navigate('Book Lab Test')} style={{marginBottom: 15}}>
+    <TouchableOpacity onPress={()=>navigation.navigate('BookLabTest')} style={{marginBottom: 15}}>
 
     <View style={styles.container} >
         <ImageBackground

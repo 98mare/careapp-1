@@ -23,7 +23,7 @@ const HomeScreen = () => {
 
       <Button
         title='Book Lab Test'
-        onPress={() => navigation.navigate("Lab Test Home Screen")}
+        onPress={() => navigation.navigate("LabTestHomeScreen")}
       ></Button>
       {/* Book lab Test */}
       {/* Book Appointment */}

@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import LabTestCard from '../../components/LabTestComponent/LabTestCard'
+import LabTestCard from '../../components/LabTestComponent/LabTestCard';
 
 const data = [
   {
@@ -15,15 +15,15 @@ const data = [
   },
 ];
 
+const renderItem = ({ item }) => (
+  <LabTestCard data={item} />
+)
 
-
-const SampleCollectionScreen = () => {
-  const renderItem = ({ item }) => {
-    <LabTestCard data={item} />
-  }
+const UploadOrSelectScreen = () => {
+  
   return (
     <View>
-      <Text>SampleCollectionScreen</Text>
+      <Text>UploadOrSelectScreen</Text>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -34,6 +34,6 @@ const SampleCollectionScreen = () => {
   )
 }
 
-export default SampleCollectionScreen
+export default UploadOrSelectScreen
 
 const styles = StyleSheet.create({})

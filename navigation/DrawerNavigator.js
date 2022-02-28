@@ -2,8 +2,8 @@ import React from "react";
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import BottomTabNavigator from "./TabNavigator";
-import { ContactStackNavigator, LabTestNavigator } from "./StackNavigator";
+// import BottomTabNavigator from "./TabNavigator";
+import { ContactStackNavigator, LabTestNavigator, MainStackNavigator } from "./StackNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -12,20 +12,27 @@ const DrawerNavigator = () => {
     <Drawer.Navigator>
       <Drawer.Screen
         name="Home"
-        component={BottomTabNavigator}
+        component={MainStackNavigator}
+        // options={{
+        //   headerShown: false,
+        // }}
+      />
+      {/* <Drawer.Screen
+        name="LabTest"
+        component={LabTestNavigator}
+        options={{
+          headerShown: false,
+        }}
+      /> */}
+      <Drawer.Screen
+        name="Contact"
+        component={ContactStackNavigator}
         // options={{
         //   headerShown: false,
         // }}
       />
       <Drawer.Screen
-        name="Contact"
-        component={ContactStackNavigator}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Drawer.Screen
-        name="Book Lab Test"
+        name="BookLabTest"
         component={LabTestNavigator}
         options={{
           headerShown: false,

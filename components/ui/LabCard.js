@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native'
 const LabCard = ({data}) => {
   const navigation  = useNavigation()
   return (
-    <TouchableOpacity style={styles.contaier} onPress={()=>navigation.navigate('Sample Collection')}>
+    <TouchableOpacity style={styles.contaier} onPress={()=>navigation.navigate('UploadOrSelectScreen')}>
     <View >
       <Text>{data.name}</Text>
       <Text>{data.address}</Text>
