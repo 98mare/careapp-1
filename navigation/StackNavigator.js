@@ -5,11 +5,11 @@ import HomeScreen from "../screens/HomeScreen";
 import AboutScreen from "../screens/AboutScreen";
 import Contact from "../screens/CotactScreen";
 import LabTestHomeScreen from "../screens/LabTest/LabTestHomeScreen";
-import BookLabTestScreen from "../screens/LabTest/BookLabTestScreen";
 import MyLabTestScreen from "../screens/LabTest/MyLabTestScreen";
-import SampleCollectionScreen from "../screens/LabTest/UploadOrSelectScreen";
 import SelectTestScreen from "../screens/LabTest/SelectTestScreen";
 import UploadOrSelectScreen from "../screens/LabTest/UploadOrSelectScreen";
+import AddInfoScreen from "../screens/LabTest/AddInfoScreen";
+import FinalDetailScreen from "../screens/LabTest/FinalDetailScreen";
 
 const screenOptionStyle = {
   headerStyle: {
@@ -81,6 +81,20 @@ const LabTestNavigator = () => {
         // options={{
         //   headerShown: false,
         // }}
+      />
+      <Stack.Screen
+        name='AddInfoScreen'
+        component={AddInfoScreen}
+        // options={{
+        //   headerShown: false,
+        // }}
+      />
+      <Stack.Screen
+        name='FinalDetailScreen'
+        component={FinalDetailScreen}
+        options={{
+          headerShown: false,
+        }}
       />
     </Stack.Navigator>
   )

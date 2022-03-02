@@ -1,6 +1,7 @@
 import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import TestCard from '../../components/LabTestComponent/TestCard';
+import { useNavigation } from '@react-navigation/native';
 const data = [
   {
     id: 1,
@@ -52,30 +53,45 @@ const data = [
 
 const SelectTestScreen = () => {
 
-  const [slected, setSelected] = useState([]);
+  const [selected, setSelected] = useState([]);
+  const [total, setTotal]= useState(0);
+  const navigation = useNavigation();
 
   const retData = (e) => {
-    let arr = slected;
+    let arr = selected;
+    let sum;
     if (arr.includes(e)) {
       // for removing speciic data
       const index = arr.indexOf(e);
       if (index > -1) {
         arr.splice(index, 1); // 2nd parameter means remove one item only
+        setTotal(prev => {
+          return(prev >= 0 ? 
+          prev - e.price : 0)
+      })
       }
-
       // arr = [2, 9]
-      console.log(arr);
+      // console.log(arr);
     } else {
       arr.push(e);
+      setTotal(prev => (
+        prev + e.price
+      ))
+
     }
     setSelected(arr);
-    console.log(slected);
+  }
+  //function for fial selected data
+
+  const fialDataFun = () => {
+    navigation.navigate('AddInfoScreen',{params : selected})
   }
 
   const renderItem = ({ item }) => (
-
-    <TestCard data={item} retData={retData} arrData={slected} />
+    <TestCard data={item} retData={retData} arrData={selected} />
   );
+
+  
   return (
 
     <View>
@@ -89,16 +105,12 @@ const SelectTestScreen = () => {
         <View style={styles.btnContainer}>
           <View style={styles.left}>
             <Text>total</Text>
-            <Text>Rs.212121</Text>
+            <Text>{total}</Text>
           </View>
-          <Button title='Proceed'></Button>
-
+          <Button title='Proceed' onPress={() => fialDataFun()}></Button>
         </View>
       </View>
     </View>
-    // <View>
-    //   <Text>Float item</Text>
-    // </View>
   )
 }
 

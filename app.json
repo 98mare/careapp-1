@@ -20,6 +20,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package" : "carelab.carepp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

@@ -20,7 +20,7 @@ const TestCard = ({ data, retData,arrData }) => {
         <View style={styles.right}>
           <CheckBox
             checked={slected}
-            onPress={() => selectedFun(data.id)}
+            onPress={() => selectedFun(data)}
           />
         </View>
       </View>
